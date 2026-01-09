@@ -2,84 +2,79 @@
 import siteDetails from '../config/siteDetails';
 ---
 
-<footer class="bg-primary text-white py-12 md:py-16">
+<footer class="bg-primary text-white py-12 md:py-16 mt-auto">
   <div class="container mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid md:grid-cols-3 gap-8 mb-8">
       <div>
-        <h3 class="text-xl font-heading font-bold mb-4">Contact Information</h3>
-        <p class="mb-2">Available 24/7</p>
+        <h3 class="text-xl font-heading font-bold mb-4 text-white">Contact Information</h3>
+        <p class="mb-2 text-white/90">Available 24/7</p>
         <p class="mb-2">
-          <a href={`tel:${siteDetails.phone.replace(/\D/g, '')}`} class="hover:underline">
+          <a href={`tel:${siteDetails.phone.replace(/\D/g, '')}`} class="text-white hover:text-accent transition text-lg font-semibold">
             {siteDetails.phone}
           </a>
         </p>
         {siteDetails.address.street && (
-          <p class="text-gray-300 text-sm">
+          <p class="text-white/70 text-sm mt-2">
             {siteDetails.address.street}<br />
             {siteDetails.address.city}, {siteDetails.address.state} {siteDetails.address.zip}
           </p>
         )}
-        <p class="text-gray-400 text-sm mt-2">
+        <p class="text-white/60 text-sm mt-4">
           Operated by {siteDetails.companyName}
         </p>
       </div>
       
       <div>
-        <h3 class="text-xl font-heading font-bold mb-4">Quick Links</h3>
+        <h3 class="text-xl font-heading font-bold mb-4 text-white">Quick Links</h3>
         <ul class="space-y-2">
           <li>
-            <a href="/services" class="text-gray-300 hover:text-white transition">
-              Our Services
-            </a>
-          </li>
-          <li>
-            <a href="/obituaries" class="text-gray-300 hover:text-white transition">
-              Obituaries
-            </a>
-          </li>
-          <li>
-            <a href="/contact" class="text-gray-300 hover:text-white transition">
+            <a href="#contact" class="text-white/80 hover:text-accent transition-colors">
               Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="#contact" class="text-white/80 hover:text-accent transition-colors">
+              Plan Ahead
             </a>
           </li>
         </ul>
       </div>
       
       <div>
-        <h3 class="text-xl font-heading font-bold mb-4">Connect</h3>
+        <h3 class="text-xl font-heading font-bold mb-4 text-white">Connect</h3>
         {Object.keys(siteDetails.socialLinks).length > 0 ? (
-          <ul class="space-y-2 text-gray-300">
+          <ul class="space-y-2 text-white/80">
             {siteDetails.socialLinks.facebook && (
               <li>
-                <a href={siteDetails.socialLinks.facebook} target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+                <a href={siteDetails.socialLinks.facebook} target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
                   Facebook
                 </a>
               </li>
             )}
             {siteDetails.socialLinks.twitter && (
               <li>
-                <a href={siteDetails.socialLinks.twitter} target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+                <a href={siteDetails.socialLinks.twitter} target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
                   Twitter
                 </a>
               </li>
             )}
             {siteDetails.socialLinks.linkedin && (
               <li>
-                <a href={siteDetails.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+                <a href={siteDetails.socialLinks.linkedin} target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
                   LinkedIn
                 </a>
               </li>
             )}
             {siteDetails.socialLinks.instagram && (
               <li>
-                <a href={siteDetails.socialLinks.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-white transition">
+                <a href={siteDetails.socialLinks.instagram} target="_blank" rel="noopener noreferrer" class="hover:text-accent transition-colors">
                   Instagram
                 </a>
               </li>
             )}
           </ul>
         ) : (
-          <p class="text-gray-400 text-sm">Follow us on social media</p>
+          <p class="text-white/60 text-sm">Follow us on social media</p>
         )}
       </div>
     </div>

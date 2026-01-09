@@ -6,9 +6,9 @@ export default {
       colors: {
         // Semantic color layer for "Comforting Minimalist" aesthetic
         primary: {
-          DEFAULT: '#1a1a1a',      // Deep Charcoal - Stability
-          dark: '#0f0f0f',
-          light: '#2d2d2d',
+          DEFAULT: '#1a3b34',      // Forest Green / Deep Charcoal - Stability
+          dark: '#0f2520',
+          light: '#2d5a4f',
         },
         secondary: {
           DEFAULT: '#f9f7f2',      // Soft Cream/Off-White - Backgrounds

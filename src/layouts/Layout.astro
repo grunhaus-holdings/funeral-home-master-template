@@ -30,10 +30,23 @@ const pageDescription = description || `Professional funeral and cremation servi
     <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
     
     <title>{pageTitle}</title>
+    <style>
+      /* Ensure colors are applied */
+      :root {
+        --color-primary: #1a3b34;
+        --color-primary-dark: #0f2520;
+        --color-primary-light: #2d5a4f;
+        --color-secondary: #f9f7f2;
+        --color-accent: #b08d57;
+        --color-accent-dark: #8f6f44;
+        --color-background: #f9f7f2;
+        --color-text: #2d2d2d;
+      }
+    </style>
   </head>
-  <body class="font-body text-text bg-background">
+  <body class="font-body text-text bg-background min-h-screen flex flex-col antialiased">
     <Navbar />
-    <main>
+    <main class="flex-grow">
       <slot />
     </main>
     <Footer />
