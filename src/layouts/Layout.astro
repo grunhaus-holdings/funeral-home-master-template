@@ -7,23 +7,67 @@ import MarketingModal from '../components/MarketingModal.astro';
 interface Props {
   title?: string;
   description?: string;
+  pageType?: 'general' | 'catholic' | 'veteran';
+  language?: 'en' | 'es';
 }
 
-const { title, description } = Astro.props;
+const { title, description, pageType, language } = Astro.props;
+
+// Detect language and page type from URL if not provided
+const pathname = Astro.url.pathname;
+const detectedLanguage: 'en' | 'es' = language || (pathname.includes('-es') || pathname === '/es' ? 'es' : 'en');
+const detectedPageType: 'general' | 'catholic' | 'veteran' = pageType || 
+  (pathname.includes('catholic') ? 'catholic' : 
+   pathname.includes('veteran') ? 'veteran' : 'general');
+
 const pageTitle = title 
   ? `${title} | ${siteDetails.companyName}` 
   : siteDetails.companyName;
 const pageDescription = description || `Professional funeral and cremation services with dignity, respect, and understanding.`;
+
+// Generate hreflang alternates
+function getAlternateUrls(): Array<{ lang: string; url: string }> {
+  const baseUrl = Astro.site?.href || Astro.url.origin;
+  const alternates: Array<{ lang: string; url: string }> = [];
+  
+  // Current page
+  alternates.push({ lang: detectedLanguage, url: `${baseUrl}${pathname}` });
+  
+  // Alternate language version
+  if (detectedLanguage === 'en') {
+    // English -> Spanish
+    const esPath = pathname === '/' ? '/es' : 
+                   pathname === '/catholic' ? '/catholic-es' :
+                   pathname === '/veteran' ? '/veteran-es' : pathname.replace(/-es$/, '');
+    alternates.push({ lang: 'es', url: `${baseUrl}${esPath}` });
+  } else {
+    // Spanish -> English
+    const enPath = pathname === '/es' ? '/' :
+                   pathname === '/catholic-es' ? '/catholic' :
+                   pathname === '/veteran-es' ? '/veteran' : pathname.replace(/-es$/, '');
+    alternates.push({ lang: 'en', url: `${baseUrl}${enPath}` });
+  }
+  
+  return alternates;
+}
+
+const alternateUrls = getAlternateUrls();
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={detectedLanguage}>
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={pageDescription} />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO: hreflang tags for language alternates -->
+    {alternateUrls.map((alt) => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={alternateUrls.find(a => a.lang === 'en')?.url || alternateUrls[0].url} />
     
     <!-- Google Fonts: Merriweather (headings) + Inter (body) -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -50,7 +94,7 @@ const pageDescription = description || `Professional funeral and cremation servi
     <main class="flex-grow">
       <slot />
     </main>
-    <Footer />
+    <Footer pageType={detectedPageType} language={detectedLanguage} />
     {siteDetails.marketingModal.enabled && (
       <MarketingModal
         title={siteDetails.marketingModal.title}

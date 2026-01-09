@@ -1,5 +1,30 @@
 ---
 import siteDetails from '../config/siteDetails';
+
+interface Props {
+  pageType?: 'general' | 'catholic' | 'veteran';
+  language?: 'en' | 'es';
+}
+
+const { pageType = 'general', language = 'en' } = Astro.props;
+
+// Determine logo based on page type and language
+function getLogoPath(): string {
+  if (pageType === 'catholic') {
+    return language === 'es' ? '/images/SpanishCathLogo.webp' : '/images/CatholicLogo.webp';
+  } else if (pageType === 'veteran') {
+    return '/images/VeteranLogo.webp'; // Same for both languages
+  } else {
+    return language === 'es' ? '/images/SpanishAffLogo.webp' : '/images/AffCareLogo.webp';
+  }
+}
+
+const logoPath = getLogoPath();
+const logoAlt = pageType === 'catholic' 
+  ? (language === 'es' ? 'Cuidado Católico' : 'Catholic Care')
+  : pageType === 'veteran'
+  ? 'Veteran Services'
+  : (language === 'es' ? 'Cuidado AFF' : 'AFF Care');
 ---
 
 <footer class="bg-primary text-white py-12 md:py-16 mt-auto">
@@ -76,11 +101,11 @@ import siteDetails from '../config/siteDetails';
         ) : (
           <p class="text-white/60 text-sm">Follow us on social media</p>
         )}
-        <!-- AFF Care Logo - Desktop Only -->
+        <!-- Logo - Desktop Only -->
         <div class="hidden md:block mt-6">
           <img 
-            src="/images/AffCareLogo.webp" 
-            alt="AFF Care" 
+            src={logoPath} 
+            alt={logoAlt} 
             class="h-16 w-auto object-contain opacity-90 hover:opacity-100 transition-opacity"
           />
         </div>
