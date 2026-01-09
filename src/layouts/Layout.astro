@@ -1,0 +1,119 @@
+---
+import siteDetails from '../config/siteDetails';
+import Navbar from '../components/Navbar.astro';
+import Footer from '../components/Footer.astro';
+import MarketingModal from '../components/MarketingModal.astro';
+
+interface Props {
+  title?: string;
+  description?: string;
+  pageType?: 'general' | 'catholic' | 'veteran';
+  language?: 'en' | 'es';
+}
+
+const { title, description, pageType, language } = Astro.props;
+
+// Detect language and page type from URL if not provided
+const pathname = Astro.url.pathname;
+const detectedLanguage: 'en' | 'es' = language || (pathname.includes('-es') || pathname === '/es' ? 'es' : 'en');
+const detectedPageType: 'general' | 'catholic' | 'veteran' = pageType || 
+  (pathname.includes('catholic') ? 'catholic' : 
+   pathname.includes('veteran') ? 'veteran' : 'general');
+
+const pageTitle = title 
+  ? `${title} | ${siteDetails.companyName}` 
+  : siteDetails.companyName;
+const pageDescription = description || `Professional funeral and cremation services with dignity, respect, and understanding.`;
+
+// Generate hreflang alternates
+function getAlternateUrls(): Array<{ lang: string; url: string }> {
+  const baseUrl = Astro.site?.href || Astro.url.origin;
+  const alternates: Array<{ lang: string; url: string }> = [];
+  
+  // Current page
+  alternates.push({ lang: detectedLanguage, url: `${baseUrl}${pathname}` });
+  
+  // Alternate language version
+  if (detectedLanguage === 'en') {
+    // English -> Spanish
+    const esPath = pathname === '/' ? '/es' : 
+                   pathname === '/catholic' ? '/catholic-es' :
+                   pathname === '/veteran' ? '/veteran-es' : pathname.replace(/-es$/, '');
+    alternates.push({ lang: 'es', url: `${baseUrl}${esPath}` });
+  } else {
+    // Spanish -> English
+    const enPath = pathname === '/es' ? '/' :
+                   pathname === '/catholic-es' ? '/catholic' :
+                   pathname === '/veteran-es' ? '/veteran' : pathname.replace(/-es$/, '');
+    alternates.push({ lang: 'en', url: `${baseUrl}${enPath}` });
+  }
+  
+  return alternates;
+}
+
+const alternateUrls = getAlternateUrls();
+---
+
+<!doctype html>
+<html lang={detectedLanguage}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={pageDescription} />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    
+    <!-- SEO: hreflang tags for language alternates -->
+    {alternateUrls.map((alt) => (
+      <link rel="alternate" hreflang={alt.lang} href={alt.url} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={alternateUrls.find(a => a.lang === 'en')?.url || alternateUrls[0].url} />
+    
+    <!-- Google Fonts: Merriweather (headings) + Inter (body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    
+    <title>{pageTitle}</title>
+    <style>
+      /* Ensure colors are applied */
+      :root {
+        --color-primary: #1a3b34;
+        --color-primary-dark: #0f2520;
+        --color-primary-light: #2d5a4f;
+        --color-secondary: #f9f7f2;
+        --color-accent: #b08d57;
+        --color-accent-dark: #8f6f44;
+        --color-background: #f9f7f2;
+        --color-text: #2d2d2d;
+      }
+    </style>
+  </head>
+  <body class="font-body text-text bg-background min-h-screen flex flex-col antialiased">
+    <Navbar />
+    <main class="flex-grow">
+      <slot />
+    </main>
+    <Footer pageType={detectedPageType} language={detectedLanguage} />
+    {siteDetails.marketingModal.enabled && (
+      <MarketingModal
+        title={siteDetails.marketingModal.title}
+        bodyText={siteDetails.marketingModal.bodyText}
+        ctaLink={siteDetails.marketingModal.ctaLink}
+        ctaText={siteDetails.marketingModal.ctaText}
+        showAfterDays={siteDetails.marketingModal.showAfterDays}
+      />
+    )}
+    
+    <style>
+      /* Print styles - hide navigation and footer */
+      @media print {
+        nav,
+        footer {
+          display: none !important;
+        }
+      }
+    </style>
+  </body>
+</html>
+

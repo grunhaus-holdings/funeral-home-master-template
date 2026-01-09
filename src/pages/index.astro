@@ -1,0 +1,439 @@
+---
+import Layout from '../layouts/Layout.astro';
+import siteDetails from '../config/siteDetails';
+---
+
+<Layout title="Planning Ahead for Peace of Mind" pageType="general" language="en">
+  <!-- Hero Section -->
+  <section class="relative bg-gradient-to-br from-primary via-primary-dark to-primary-light text-white py-12 md:py-32 overflow-hidden">
+    <!-- Background Image with Overlay -->
+    <div class="absolute inset-0 z-0">
+      <img 
+        src="/images/hero.webp" 
+        alt="Peaceful memorial setting" 
+        class="w-full h-full object-cover"
+      />
+      <!-- Dark overlay for text readability -->
+      <div class="absolute inset-0 bg-gradient-to-br from-primary/40 via-primary-dark/40 to-primary-light/40"></div>
+    </div>
+    
+    <!-- Content -->
+    <div class="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto text-center">
+        <h1 class="text-3xl md:text-5xl lg:text-6xl font-heading font-bold mb-4 md:mb-6 drop-shadow-lg">
+          Planning Ahead for Peace of Mind
+        </h1>
+        <p class="text-lg md:text-2xl text-white/95 leading-relaxed drop-shadow-md">
+          Thinking about the end of life can be hard. However, making plans now is one of the best gifts you can give to your family. It stops them from worrying about what you would have wanted. It also helps them avoid difficult choices during a sad time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Plan Ahead Section -->
+  <section class="py-10 md:py-24 bg-secondary">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-4xl font-heading font-bold text-primary mb-6 md:mb-8 text-center">
+          Why Should You Plan Ahead?
+        </h2>
+        <div class="grid md:grid-cols-3 gap-4 md:gap-8">
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-sm border-t-4 border-accent">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-3 md:mb-4">
+              It Helps Your Family
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              Your family won't have to guess what you wanted. You write down your wishes for your service, whether you want to be buried or cremated, and other details.
+            </p>
+          </div>
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-sm border-t-4 border-accent">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-3 md:mb-4">
+              It Saves Money
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              You can pay for things now. This protects your family from rising costs in the future. The money is kept safe in a special trust or insurance account until it is needed.
+            </p>
+          </div>
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-sm border-t-4 border-accent">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-3 md:mb-4">
+              It is Your Choice
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              You get to decide exactly how you want to be remembered.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Common Questions Section -->
+  <section class="py-10 md:py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-4xl font-heading font-bold text-primary mb-6 md:mb-12 text-center">
+          Common Questions About Cremation
+        </h2>
+        <div class="space-y-4 md:space-y-6">
+          <div class="bg-secondary p-4 md:p-6 rounded-lg">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Can I pay for everything before I die?
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              Yes. You can put money into a safe account (a Life Insurance policy, which we help with). This is a very caring thing to do because it takes the stress off your family later.
+            </p>
+          </div>
+          <div class="bg-secondary p-4 md:p-6 rounded-lg">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              What if I die while I am traveling?
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              If you are away from home when you pass away, your family just needs to call the funeral home. They will talk to the local authorities and bring you back home.
+            </p>
+          </div>
+          <div class="bg-secondary p-4 md:p-6 rounded-lg">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Is there a lot of paperwork?
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              There can be, but the funeral home will help. They will guide your family through every step. They help notify Social Security and check for any Veteran benefits or insurance money.
+            </p>
+          </div>
+          <div class="bg-secondary p-4 md:p-6 rounded-lg">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Can my family see me before I am cremated?
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              Yes, in most cases. If your family wants to see you one last time, the funeral home can prepare you for a private viewing. This usually needs to happen within a few days.
+            </p>
+          </div>
+          <div class="bg-secondary p-4 md:p-6 rounded-lg">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Do I need to buy an urn?
+            </h3>
+            <p class="text-sm md:text-base text-text leading-relaxed">
+              You can choose from many different types of urns. Some are made of wood, metal, or other materials. You can pick one that fits your style.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cemetery/Headstone Help Section -->
+  <section class="py-10 md:py-24 bg-secondary">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <div class="bg-white p-5 md:p-12 rounded-lg shadow-sm border-t-4 border-accent">
+          <h2 class="text-xl md:text-3xl font-heading font-bold text-primary mb-4 md:mb-6">
+            If we do not have a cemetery plot or a headstone, can you help us choose one?
+          </h2>
+          <p class="text-sm md:text-lg text-text leading-relaxed">
+            Yes, absolutely. We are here to guide you through these decisions. We maintain a complete directory of local cemeteries and their prices to help you find a peaceful resting place that is right for your family. We can also connect you with trusted local experts to help you design a beautiful headstone or marker. You do not have to make these choices alone; we will ensure you have all the options you need.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cremation Options Section -->
+  <section class="py-10 md:py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl md:text-4xl font-heading font-bold text-primary mb-3 md:mb-4 text-center">
+          Cremation Options
+        </h2>
+        <p class="text-base md:text-xl text-text text-center mb-6 md:mb-12 max-w-3xl mx-auto">
+          There are different ways to handle cremation. You can choose the one that fits your life and your budget.
+        </p>
+        <div class="grid md:grid-cols-3 gap-4 md:gap-8">
+          <!-- Option 1: Direct Cremation -->
+          <div class="bg-secondary p-4 md:p-8 rounded-lg shadow-sm border-t-4 border-accent">
+            <h3 class="text-lg md:text-2xl font-heading font-bold text-primary mb-3 md:mb-4">
+              1. The Simple Option<br />
+              <span class="text-base md:text-lg font-normal">(Direct Cremation)</span>
+            </h3>
+            <p class="text-sm md:text-base text-text mb-4 md:mb-6 leading-relaxed">
+              This is the most basic choice. It is for people who want something simple and private.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-text">
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>The funeral home picks up your loved one.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>The cremation takes place.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>There is no public funeral or visitation.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>The family receives the ashes to bury, scatter, or keep at home.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Option 2: Memorial Option -->
+          <div class="bg-secondary p-4 md:p-8 rounded-lg shadow-sm border-t-4 border-accent">
+            <h3 class="text-lg md:text-2xl font-heading font-bold text-primary mb-3 md:mb-4">
+              2. The Memorial Option<br />
+              <span class="text-base md:text-lg font-normal">(Journey of Remembrance)</span>
+            </h3>
+            <p class="text-sm md:text-base text-text mb-4 md:mb-6 leading-relaxed">
+              This option allows friends and family to say goodbye together.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-text">
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>Includes a time for family and friends to visit.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>Includes a memorial service to share memories.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>The cremation happens, and the ashes are returned to the family.</span>
+              </li>
+            </ul>
+          </div>
+
+          <!-- Option 3: Full Service Option -->
+          <div class="bg-secondary p-4 md:p-8 rounded-lg shadow-sm border-t-4 border-accent">
+            <h3 class="text-lg md:text-2xl font-heading font-bold text-primary mb-3 md:mb-4">
+              3. The Full Service Option<br />
+              <span class="text-base md:text-lg font-normal">(Journey of Life)</span>
+            </h3>
+            <p class="text-sm md:text-base text-text mb-4 md:mb-6 leading-relaxed">
+              This is like a traditional funeral, but it ends with cremation instead of burial.
+            </p>
+            <ul class="space-y-2 md:space-y-3 text-sm md:text-base text-text">
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>Your body is prepared so family and friends can visit and say goodbye.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>A special "rental casket" is used for the service.</span>
+              </li>
+              <li class="flex items-start">
+                <span class="text-accent mr-2">•</span>
+                <span>After the funeral service is over, the cremation takes place.</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Burial Options Section -->
+  <section class="py-10 md:py-24 bg-secondary">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-4xl font-heading font-bold text-primary mb-3 md:mb-4 text-center">
+          Burial Options
+        </h2>
+        <p class="text-base md:text-xl text-text text-center mb-6 md:mb-12">
+          If you prefer burial instead of cremation, there are affordable choices for that, too.
+        </p>
+        <div class="grid md:grid-cols-2 gap-4 md:gap-6">
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Traditional Farewell
+            </h3>
+            <p class="text-sm md:text-base text-text">
+              Includes getting the body ready, a visitation, a funeral service, and a ride to the cemetery.
+            </p>
+          </div>
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Simple Farewell
+            </h3>
+            <p class="text-sm md:text-base text-text">
+              Similar to the traditional one, but with a shorter visitation time.
+            </p>
+          </div>
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Graveside Service
+            </h3>
+            <p class="text-sm md:text-base text-text">
+              A service held right at the cemetery.
+            </p>
+          </div>
+          <div class="bg-white p-4 md:p-6 rounded-lg shadow-sm">
+            <h3 class="text-lg md:text-xl font-heading font-semibold text-primary mb-2 md:mb-3">
+              Immediate Burial
+            </h3>
+            <p class="text-sm md:text-base text-text">
+              Burial with no public service or visitation.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Form Section -->
+  <section id="contact" class="py-10 md:py-24 bg-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl mx-auto">
+        <h2 class="text-2xl md:text-4xl font-heading font-bold text-primary mb-3 md:mb-4 text-center">
+          Get Started Today
+        </h2>
+        <p class="text-base md:text-xl text-text text-center mb-6 md:mb-12">
+          Contact us to begin planning ahead for peace of mind.
+        </p>
+        <div class="bg-secondary p-5 md:p-12 rounded-lg shadow-sm">
+          <form id="contact-form" class="space-y-4 md:space-y-6">
+            <!-- Honeypot field for spam prevention -->
+            <input type="text" name="honeypot" style="display: none;" tabindex="-1" autocomplete="off" />
+            
+            <div>
+              <label for="name" class="block text-sm font-semibold text-primary mb-2">
+                Full Name *
+              </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                autocomplete="name"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
+                placeholder="Your name"
+              />
+            </div>
+            
+            <div>
+              <label for="email" class="block text-sm font-semibold text-primary mb-2">
+                Email Address *
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                autocomplete="email"
+                required
+                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
+                placeholder="your@email.com"
+              />
+            </div>
+            
+            <div>
+              <label for="phone" class="block text-sm font-semibold text-primary mb-2">
+                Phone Number
+              </label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                autocomplete="tel"
+                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
+                placeholder="(330) 332-4401"
+              />
+            </div>
+            
+            <div>
+              <label for="message" class="block text-sm font-semibold text-primary mb-2">
+                Message *
+              </label>
+              <textarea
+                id="message"
+                name="message"
+                autocomplete="off"
+                required
+                rows="5"
+                class="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
+                placeholder="Tell us how we can help you plan ahead..."
+              ></textarea>
+            </div>
+            
+            <button
+              type="submit"
+              class="w-full bg-accent text-white px-6 py-3 rounded-md font-semibold text-lg hover:bg-accent-dark transition shadow-sm"
+            >
+              Send Message
+            </button>
+            
+            <div id="form-message" class="hidden mt-4 p-4 rounded-md"></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-10 md:py-20 bg-primary text-white">
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <h2 class="text-xl md:text-3xl font-heading font-bold mb-3 md:mb-4">
+        Ready to Start Planning?
+      </h2>
+      <p class="text-base md:text-lg mb-4 md:mb-6 text-white/90">
+        Our compassionate team is here to guide you through every step.
+      </p>
+      <a
+        href={`tel:${siteDetails.phone.replace(/\D/g, '')}`}
+        class="inline-block bg-accent text-white px-8 py-3 rounded-md font-semibold text-lg hover:bg-accent-dark transition shadow-sm"
+      >
+        Call {siteDetails.phone}
+      </a>
+    </div>
+  </section>
+
+  <script>
+    // Contact form handling
+    const form = document.getElementById('contact-form');
+    const messageDiv = document.getElementById('form-message');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const formData = {
+        name: (document.getElementById('name') as HTMLInputElement).value,
+        email: (document.getElementById('email') as HTMLInputElement).value,
+        phone: (document.getElementById('phone') as HTMLInputElement).value,
+        message: (document.getElementById('message') as HTMLTextAreaElement).value,
+        honeypot: (document.querySelector('input[name="honeypot"]') as HTMLInputElement).value,
+      };
+
+      // Show loading state
+      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const originalText = submitButton.textContent;
+      submitButton.textContent = 'Sending...';
+      submitButton.disabled = true;
+      messageDiv.classList.add('hidden');
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+          messageDiv.className = 'mt-4 p-4 rounded-md bg-green-100 text-green-800';
+          messageDiv.textContent = data.message || 'Thank you for your message. We will get back to you soon.';
+          form.reset();
+        } else {
+          messageDiv.className = 'mt-4 p-4 rounded-md bg-red-100 text-red-800';
+          messageDiv.textContent = data.error || 'An error occurred. Please try again.';
+        }
+      } catch (error) {
+        messageDiv.className = 'mt-4 p-4 rounded-md bg-red-100 text-red-800';
+        messageDiv.textContent = 'An error occurred. Please try again or call us directly.';
+      } finally {
+        messageDiv.classList.remove('hidden');
+        submitButton.textContent = originalText;
+        submitButton.disabled = false;
+      }
+    });
+  </script>
+</Layout>
