@@ -2,6 +2,7 @@
 import siteDetails from '../config/siteDetails';
 import Navbar from '../components/Navbar.astro';
 import Footer from '../components/Footer.astro';
+import MarketingModal from '../components/MarketingModal.astro';
 
 interface Props {
   title?: string;
@@ -50,6 +51,15 @@ const pageDescription = description || `Professional funeral and cremation servi
       <slot />
     </main>
     <Footer />
+    {siteDetails.marketingModal.enabled && (
+      <MarketingModal
+        title={siteDetails.marketingModal.title}
+        bodyText={siteDetails.marketingModal.bodyText}
+        ctaLink={siteDetails.marketingModal.ctaLink}
+        ctaText={siteDetails.marketingModal.ctaText}
+        showAfterDays={siteDetails.marketingModal.showAfterDays}
+      />
+    )}
     
     <style>
       /* Print styles - hide navigation and footer */
